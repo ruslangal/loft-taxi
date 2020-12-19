@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import './App.css';
 import LoginPage from './LoginPage';
 import RegistrationPage from './RegistrationPage';
+import MapPage from './MapPage';
+import ProfilePage from './ProfilePage';
 
 class App extends Component {
   state = { currentPage: 'login' }
@@ -15,10 +17,10 @@ class App extends Component {
     switch(page) {
       case 'registration':
         return <RegistrationPage navigateTo={this.navigateTo} />
-      /*case 'map':
+      case 'map':
         return <MapPage navigateTo={this.navigateTo} />
       case 'profile':
-        return <ProfilePage navigateTo={this.navigateTo} />*/
+        return <ProfilePage navigateTo={this.navigateTo} />
       case 'login':
       default:
         return <LoginPage navigateTo={this.navigateTo} />

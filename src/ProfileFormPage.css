@@ -1,17 +1,13 @@
-.form-page {
+.profile-form-page {
     flex-grow: 1;
-    position: relative;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    /* заглушка */
     background: #cecece url('./map.png');
     background-size: cover;
+
+    position: relative;
 }
 
-.form-page:after {
+.profile-form-page:after {
     content: '';
     position: absolute;
     top: 0;

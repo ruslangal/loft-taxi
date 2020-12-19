@@ -1,0 +1,33 @@
+.navigation{
+    height: 102px;
+    display: flex;
+    align-items: center;
+
+    background-color: #000;
+
+    padding-left: 27px;
+    padding-right: 50px
+}
+
+.navigation__logo {
+    background-image: url('./lofttaxi-smalllogo.png');
+    background-size: 269px 61px;
+    width: 269px;
+    height: 61px;
+}
+
+.navigation__buffer {
+    flex-grow: 1;
+}
+
+.navigation__link {
+    color: #fff;
+
+    text-decoration: none;
+
+    padding-left: 45px;
+}
+
+.navigation__link_active {
+    color: #FDBF5A;
+}

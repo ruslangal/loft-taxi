@@ -1,4 +1,5 @@
 .login-form {
+    z-index: 1;
     width: 356px;
 
     padding: 55px 112px;
