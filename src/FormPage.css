@@ -1,0 +1,11 @@
+.form-page {
+    flex-grow: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* заглушка */
+    background: #cecece url('./map.png');
+    background-size: cover;
+}

@@ -1,0 +1,16 @@
+.side-logo {
+    width: 35%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #000;
+}
+
+.side-logo__link {
+    background-image: url('./lofttaxi-biglogo.png');
+    background-size: 192px 228px;
+    width: 192px;
+    height: 228px;
+}

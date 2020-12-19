@@ -1,19 +1,35 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react'
 import './App.css';
+import LoginPage from './LoginPage';
+import RegistrationPage from './RegistrationPage';
 
 class App extends Component {
+  state = { currentPage: 'login' }
+
+  navigateTo = (page) => {
+    // alert(page);
+    this.setState({ currentPage: page });
+  };
+
+  selectForm = (page) => {
+    switch(page) {
+      case 'registration':
+        return <RegistrationPage navigateTo={this.navigateTo} />
+      /*case 'map':
+        return <MapPage navigateTo={this.navigateTo} />
+      case 'profile':
+        return <ProfilePage navigateTo={this.navigateTo} />*/
+      case 'login':
+      default:
+        return <LoginPage navigateTo={this.navigateTo} />
+    }
+  }
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <>
+        {this.selectForm(this.state.currentPage)}
+      </>
     );
   }
 }
