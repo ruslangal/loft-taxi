@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './App.css';
+
 import LoginPage from './LoginPage';
 import RegistrationPage from './RegistrationPage';
 import MapPage from './MapPage';

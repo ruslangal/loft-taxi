@@ -7,7 +7,7 @@
     justify-content: center;
 
     /* заглушка */
-    background: #cecece url('./map.png');
+    background: #cecece url('../resources/map.png');
     background-size: cover;
 }
 

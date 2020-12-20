@@ -10,7 +10,7 @@
 }
 
 .navigation__logo {
-    background-image: url('./lofttaxi-smalllogo.png');
+    background-image: url('../resources/lofttaxi-smalllogo.png');
     background-size: 269px 61px;
     width: 269px;
     height: 61px;

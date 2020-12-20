@@ -1,7 +1,7 @@
 .profile-form-page {
     flex-grow: 1;
 
-    background: #cecece url('./map.png');
+    background: #cecece url('../resources/map.png');
     background-size: cover;
 
     position: relative;
