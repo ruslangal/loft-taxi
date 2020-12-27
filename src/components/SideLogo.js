@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import './SideLogo.css';
+import PropTypes from 'prop-types'
 
 class SideLogo extends Component {
+    static propTypes = {
+        navigateTo: PropTypes.func.isRequired
+    }
     handleClick = (e) => {
         e.preventDefault();
 

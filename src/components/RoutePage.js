@@ -14,7 +14,7 @@ class RoutePage extends Component {
         this.map = new mapboxgl.Map({
             container: this.mapContainer.current,
             style: "mapbox://styles/mapbox/streets-v11",
-            zoom: 11,
+            zoom: 14,
             center: [10.39170933059438, 63.4309997568285],
             controls: false,
         });

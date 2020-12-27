@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 import './RegistrationForm.css';
+import PropTypes from 'prop-types'
 
 class RegistrationForm extends Component {
+    static propTypes = {
+        navigateTo: PropTypes.func.isRequired
+    }
+
     handleSubmit = (e) => {
         /*
         const userEmail = e.target.userEmail.value;

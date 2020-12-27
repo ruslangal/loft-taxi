@@ -3,8 +3,13 @@ import './RegistrationPage.css';
 import SideLogo from './SideLogo'
 import FormPage from './FormPage'
 import RegistrationForm from './RegistrationForm'
+import PropTypes from 'prop-types'
 
 class RegistrationPage extends Component {
+    static propTypes = {
+        navigateTo: PropTypes.func.isRequired
+    }
+
     render() {
         return (
             <div className="registration-page">

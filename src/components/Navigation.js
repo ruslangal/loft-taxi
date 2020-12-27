@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 import './Navigation.css';
+import PropTypes from 'prop-types'
 
 class Navigation extends Component {
+    static propTypes = {
+        navigateTo: PropTypes.func.isRequired
+    }
+
     handleLogoClick = (e) => {
         e.preventDefault();
 

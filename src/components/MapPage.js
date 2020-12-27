@@ -8,7 +8,7 @@ class MapPage extends Component {
         return (
             <div className="map-page">
                 <Navigation {...this.props} currentPage="map"/>
-                <RoutePage {...this.props}/>
+                <RoutePage />
             </div>
         )
     }
