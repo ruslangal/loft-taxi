@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './LoginPage.css';
 import SideLogo from './SideLogo'
 import FormPage from './FormPage'
-import LoginForm from './LoginForm'
+import { LoginForm } from './LoginForm'
 import PropTypes from 'prop-types'
 
 class LoginPage extends Component {

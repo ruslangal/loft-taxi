@@ -3,7 +3,7 @@ import './LoginForm.css';
 import PropTypes from 'prop-types';
 import { withAuth } from './AuthContext'
 
-class LoginForm extends Component {
+export class LoginFormPresenter extends Component {
     static propTypes = {
         navigateTo: PropTypes.func.isRequired,
         login: PropTypes.func.isRequired,
@@ -12,8 +12,8 @@ class LoginForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        const userEmail = e.target.userEmail.value;
-        const userPassword = e.target.userPassword.value;
+        const userEmail = e.target.userEmail ? e.target.userEmail.value : null;
+        const userPassword = e.target.userPassword ? e.target.userPassword.value : null;
 
         this.props.login(userEmail, userPassword);
 
@@ -28,7 +28,7 @@ class LoginForm extends Component {
 
     render() {
         return (
-            <div className="login-form">
+            <div data-testid="login-form" className="login-form">
                 <form className="login-form__form" onSubmit={this.handleSubmit}>
                     <h2 className="login-form__title">Войти</h2>
                     <div className="login-form__field">
@@ -46,15 +46,15 @@ class LoginForm extends Component {
                             Забыли пароль?
                         </a>
                     </div>
-                    <input type="submit" value="Войти" className="login-form__submit"/>
+                    <input data-testid="login-form__submit" type="submit" value="Войти" className="login-form__submit"/>
                 </form>
                 <div className="login-form__helper">
                     <span className="login-form__helper-text">Новый пользователь?</span>
-                    <a className="login-form__helper-link" href="#" onClick={this.handleRegistrationClick}>Регистрация</a>
+                    <a data-testid="login-form__helper-link" className="login-form__helper-link" href="#" onClick={this.handleRegistrationClick}>Регистрация</a>
                 </div>
             </div>
         )
     }
 }
 
-export default withAuth(LoginForm);
+export const LoginForm = withAuth(LoginFormPresenter);
