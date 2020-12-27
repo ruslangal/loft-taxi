@@ -1,17 +1,22 @@
 import React, { Component } from 'react'
 import './LoginForm.css';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import { withAuth } from './AuthContext'
 
 class LoginForm extends Component {
     static propTypes = {
-        navigateTo: PropTypes.func.isRequired
+        navigateTo: PropTypes.func.isRequired,
+        login: PropTypes.func.isRequired,
     }
 
     handleSubmit = (e) => {
-        /*
+        e.preventDefault();
+
         const userEmail = e.target.userEmail.value;
         const userPassword = e.target.userPassword.value;
-        */
+
+        this.props.login(userEmail, userPassword);
+
         this.props.navigateTo('map');
     }
 
@@ -52,4 +57,4 @@ class LoginForm extends Component {
     }
 }
 
-export default LoginForm;
+export default withAuth(LoginForm);
