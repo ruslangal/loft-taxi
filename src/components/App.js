@@ -4,13 +4,17 @@ import LoginPage from './LoginPage';
 import RegistrationPage from './RegistrationPage';
 import MapPage from './MapPage';
 import ProfilePage from './ProfilePage';
+import { withAuth } from './AuthContext'
 
 class App extends Component {
   state = { currentPage: 'login' }
 
   navigateTo = (page) => {
-    // alert(page);
-    this.setState({ currentPage: page });
+    if (this.props.isLoggedIn === 1) {
+      this.setState({ currentPage: page });
+    } else {
+      this.setState({ currentPage: 'login' });
+    }
   };
 
   selectForm = (page) => {
@@ -36,4 +40,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withAuth(App);

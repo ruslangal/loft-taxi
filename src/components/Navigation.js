@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import './Navigation.css';
+import PropTypes from 'prop-types'
+import { withAuth } from './AuthContext'
 
 class Navigation extends Component {
+    static propTypes = {
+        navigateTo: PropTypes.func.isRequired
+    }
+
     handleLogoClick = (e) => {
         e.preventDefault();
 
@@ -24,8 +30,10 @@ class Navigation extends Component {
         this.props.navigateTo('profile');
     }
 
-    handleLoginClick = (e) => {
+    handleLogoutClick = (e) => {
         e.preventDefault();
+
+        this.props.logout();
 
         this.props.navigateTo('login');
     }
@@ -42,10 +50,10 @@ class Navigation extends Component {
                 <span className="navigation__buffer"></span>
                 <a className={mapClassName} href="#" onClick={this.handleMapClick}>Карта</a>
                 <a className={profileClassName} href="#" onClick={this.handleProfileClick}>Профиль</a>
-                <a className={linkClassName} href="#" onClick={this.handleLoginClick}>Выйти</a>
+                <a className={linkClassName} href="#" onClick={this.handleLogoutClick}>Выйти</a>
             </div>
         )
     }
 }
 
-export default Navigation;
+export default withAuth(Navigation);

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideLogo shows component with correct structure 1`] = `
+<div
+  class="side-logo"
+  data-testid="side-logo"
+>
+  <a
+    class="side-logo__link"
+    data-testid="side-logo__link"
+    href="#"
+  />
+</div>
+`;
