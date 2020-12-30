@@ -2,14 +2,12 @@ import React, { Component } from 'react'
 import './RoutePage.css';
 import mapboxgl from 'mapbox-gl'
 
-const mapboxToken = "pk.eyJ1IjoicmVnZW50bSIsImEiOiJja2o2emIzZGY2Y3lqMnFsYnBlYmx3MGJmIn0.NGD8dttjQ6G1OBU4rEVpVA";
-
 class RoutePage extends Component {
     map = null;
     mapContainer = React.createRef();
 
     componentDidMount() {
-        mapboxgl.accessToken = mapboxToken;
+        mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
         this.map = new mapboxgl.Map({
             container: this.mapContainer.current,
