@@ -1,25 +1,16 @@
 import React, { Component } from 'react'
 import './RegistrationForm.css';
-import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 class RegistrationForm extends Component {
-    static propTypes = {
-        navigateTo: PropTypes.func.isRequired
-    }
-
     handleSubmit = (e) => {
+        e.preventDefault();
         /*
         const userEmail = e.target.userEmail.value;
         const userName = e.target.userName.value;
         const userPassword = e.target.userPassword.value;
         */
-        this.props.navigateTo('map');
-    }
-
-    handleLoginClick = (e) => {
-        e.preventDefault();
-
-        this.props.navigateTo('login');
+        //this.props.navigateTo('map');
     }
 
     render() {
@@ -49,7 +40,7 @@ class RegistrationForm extends Component {
                 </form>
                 <div className="login-form__helper">
                     <span className="login-form__helper-text">Уже зарегистрированы?</span>
-                    <a className="login-form__helper-link" href="#" onClick={this.handleLoginClick}>Войти</a>
+                    <Link className="login-form__helper-link" to="/login">Войти</Link>
                 </div>
             </div>
         )
