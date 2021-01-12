@@ -1,0 +1,166 @@
+.profile-form {
+    z-index: 1;
+    width: 888px;
+
+    padding: 59px 44px 67px;
+
+    background-color: #fff;
+    border-radius: 20px;
+
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+}
+
+.profile-form__field {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 25px;
+}
+
+.profile-form__columns {
+    display: flex;
+}
+
+.profile-form__column {
+    flex: 1 1 50%;
+}
+
+.profile-form__column_first {
+    padding-right: 17px;
+}
+
+.profile-form__column_second {
+    padding-left: 17px;
+}
+
+.profile-form__column_left {
+    padding-right: 50px;
+}
+
+.profile-form__column_right {
+    padding-left: 50px;
+}
+
+.profile-form__title {
+    text-align: center;
+
+    margin-bottom: 13px;
+}
+
+.profile-form__subtitle {
+    text-align: center;
+    font-weight: normal;
+    margin-top: 0;
+    color: #7B7B7B;
+    margin-bottom: 51px;
+}
+
+.profile-form__submit {
+    background-color: #FDBF5A;
+
+    height: 61px;
+    width: 353px;
+    display: block;
+    margin: 46px auto 0;
+
+    font-size: 25px;
+
+    border: 0;
+    border-radius: 70px;
+
+    cursor: pointer;
+}
+
+.profile-form__field-input {
+    height: 40px;
+
+    font-size: 18px;
+
+    border: 0;
+    border-bottom: 2px solid #E4E4E4;
+}
+
+.profile-form__field-name {
+    font-size: 16px;
+
+    color: #828282;
+}
+
+.profile-form__helper {
+    margin-top: 33px;
+
+    font-size: 16px;
+}
+
+.profile-form__helper-link {
+    color: #FDBF5A;
+    padding-left: 10px;
+
+    text-decoration: none;
+}
+
+.profile-form__card {
+    box-shadow: 0px 5px 20px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
+    height: 148px;
+
+    padding: 18px 27px 16px 28px;
+}
+
+.profile-form__card-header-row {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 27px;
+}
+
+.profile-form__card-logo {
+    background-image: url('../resources/loft-card.png');
+    background-size: 34px 34px;
+    width: 34px;
+    height: 34px;
+}
+
+.profile-form__card-date {
+    font-size: 12px;
+}
+
+.profile-form__card-number {
+    font-size: 21px;
+}
+
+.profile-form__card-footer-row {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 35px;
+}
+
+.profile-form__chip-logo {
+    background-image: url('../resources/chip.png');
+    background-size: 29px 26px;
+    width: 29px;
+    height: 26px;
+}
+
+.profile-form__mc-logo {
+    display: flex;
+}
+
+.profile-form__ellipse {
+    background-image: url('../resources/mc.png');
+    background-size: 28px 28px;
+    width: 28px;
+    height: 28px;
+
+    opacity: 0.9;
+}
+
+.profile-form__ellipse:last-child {
+    margin-left: -6px;
+}
