@@ -1,6 +1,5 @@
 export const serverLogin = async (email, password) => {
-    // почему-то метод POST не работает, даже через CURL
-    /*return fetch(
+    return fetch(
         'https://loft-taxi.glitch.me/auth', {
             method: 'POST',
             headers: {
@@ -8,9 +7,6 @@ export const serverLogin = async (email, password) => {
             },
             body: JSON.stringify({ email, password })
         }
-    )*/
-    return fetch(
-        `https://loft-taxi.glitch.me/auth?username=${email}&password=${password}`
     )
     .then(response => response.json())
     .then(answer => answer.success);
