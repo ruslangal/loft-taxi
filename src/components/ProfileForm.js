@@ -6,10 +6,10 @@ import { saveCard, getCard } from '../store/actions'
 
 export class ProfileFormPresenter extends Component {
     state = {
-        cardName: undefined,
-        cardNumber: undefined,
-        expiryDate: undefined,
-        cvc: undefined
+        cardName: this.props.cardName,
+        cardNumber: this.props.cardNumber,
+        expiryDate: this.props.expiryDate,
+        cvc: this.props.cvc
     };
 
     static propTypes = {
