@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import './LoginForm.css';
 import PropTypes from 'prop-types';
-import { withAuth } from './AuthContext'
+import { connect } from 'react-redux'
+import { auth } from '../store/actions'
+import { Link } from 'react-router-dom'
 
 export class LoginFormPresenter extends Component {
     static propTypes = {
-        navigateTo: PropTypes.func.isRequired,
-        login: PropTypes.func.isRequired,
+        auth: PropTypes.func.isRequired
     }
 
     handleSubmit = (e) => {
@@ -15,15 +16,7 @@ export class LoginFormPresenter extends Component {
         const userEmail = e.target.userEmail ? e.target.userEmail.value : null;
         const userPassword = e.target.userPassword ? e.target.userPassword.value : null;
 
-        this.props.login(userEmail, userPassword);
-
-        this.props.navigateTo('map');
-    }
-
-    handleRegistrationClick = (e) => {
-        e.preventDefault();
-
-        this.props.navigateTo('registration');
+        this.props.auth(userEmail, userPassword);
     }
 
     render() {
@@ -42,19 +35,22 @@ export class LoginFormPresenter extends Component {
                             Пароль
                         </span>
                         <input name="userPassword" type="text" className="login-form__field-input" placeholder="************"/>
-                        <a className="login-form__forgotten" href="#" onClick={this.handleRegistrationClick}>
+                        <Link className="login-form__forgotten" to="/registration">
                             Забыли пароль?
-                        </a>
+                        </Link>
                     </div>
                     <input data-testid="login-form__submit" type="submit" value="Войти" className="login-form__submit"/>
                 </form>
                 <div className="login-form__helper">
                     <span className="login-form__helper-text">Новый пользователь?</span>
-                    <a data-testid="login-form__helper-link" className="login-form__helper-link" href="#" onClick={this.handleRegistrationClick}>Регистрация</a>
+                    <Link data-testid="login-form__helper-link" className="login-form__helper-link" to="/registration">Регистрация</Link>
                 </div>
             </div>
         )
     }
 }
 
-export const LoginForm = withAuth(LoginFormPresenter);
+export const LoginForm = connect(
+    null,
+    { auth }
+)(LoginFormPresenter);

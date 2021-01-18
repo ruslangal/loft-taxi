@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './MapPage.css';
-import Navigation from './Navigation'
+import { Navigation } from './Navigation'
 import RoutePage from './RoutePage'
 
 class MapPage extends Component {

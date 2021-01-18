@@ -4,40 +4,25 @@ import LoginPage from './LoginPage';
 import RegistrationPage from './RegistrationPage';
 import MapPage from './MapPage';
 import ProfilePage from './ProfilePage';
-import { withAuth } from './AuthContext'
+import { RedirectRoute } from './RedirectRoute'
+import { PrivateRoute } from './PrivateRoute'
+import { connect } from 'react-redux'
+import { Switch, Route } from 'react-router-dom'
 
-class App extends Component {
-  state = { currentPage: 'login' }
-
-  navigateTo = (page) => {
-    if (this.props.isLoggedIn === 1) {
-      this.setState({ currentPage: page });
-    } else {
-      this.setState({ currentPage: 'login' });
-    }
-  };
-
-  selectForm = (page) => {
-    switch(page) {
-      case 'registration':
-        return <RegistrationPage navigateTo={this.navigateTo} />
-      case 'map':
-        return <MapPage navigateTo={this.navigateTo} />
-      case 'profile':
-        return <ProfilePage navigateTo={this.navigateTo} />
-      case 'login':
-      default:
-        return <LoginPage navigateTo={this.navigateTo} />
-    }
-  }
-
+class AppPresenter extends Component {
   render() {
     return (
-      <>
-        {this.selectForm(this.state.currentPage)}
-      </>
+      <Switch>
+        <RedirectRoute exact path="/" component={LoginPage} />
+        <RedirectRoute path="/login" component={LoginPage} />
+        <RedirectRoute path="/registration" component={RegistrationPage} />
+        <PrivateRoute path="/map" component={MapPage} />
+        <PrivateRoute path="/profile" component={ProfilePage} />
+      </Switch>
     );
   }
 }
 
-export default withAuth(App);
+export const App = connect(
+  state => ({ isLoggedIn: state.auth.isLoggedIn })
+)(AppPresenter);
