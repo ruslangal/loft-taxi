@@ -1,9 +1,15 @@
 import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './reducers'
-import { authMiddleware } from '../middlewares/auth'
-import { getCardMiddleware } from '../middlewares/getCard'
-import { saveCardMiddleware } from '../middlewares/saveCard'
 
+import createSagaMiddleware from 'redux-saga'
+import { authSaga } from '../sagas/authSaga'
+import { regSaga } from '../sagas/regSaga'
+import { saveCardSaga, getCardSaga } from '../sagas/cardSaga'
+
+const sagaAuthMiddleware = createSagaMiddleware()
+const sagaRegMiddleware = createSagaMiddleware()
+const sagaGetCardMiddleware = createSagaMiddleware()
+const sagaSaveCardMiddleware = createSagaMiddleware()
 
 function saveToLocalStorage(state) {
     try {
@@ -25,7 +31,12 @@ function loadFromLocalStorage() {
 export const store = createStore(
     rootReducer,
     loadFromLocalStorage(),
-    applyMiddleware(authMiddleware, getCardMiddleware, saveCardMiddleware)
+    applyMiddleware(sagaAuthMiddleware, sagaRegMiddleware, sagaGetCardMiddleware, sagaSaveCardMiddleware)
 );
+
+sagaAuthMiddleware.run(authSaga);
+sagaRegMiddleware.run(regSaga);
+sagaGetCardMiddleware.run(saveCardSaga);
+sagaSaveCardMiddleware.run(getCardSaga);
 
 store.subscribe(() => saveToLocalStorage(store.getState()));

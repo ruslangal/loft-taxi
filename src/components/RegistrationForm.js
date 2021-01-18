@@ -1,16 +1,29 @@
 import React, { Component } from 'react'
 import './RegistrationForm.css';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux'
+import { reg } from '../store/actions'
 import { Link } from 'react-router-dom'
 
-class RegistrationForm extends Component {
+class RegistrationFormPresenter extends Component {
+    static propTypes = {
+        reg: PropTypes.func.isRequired
+    }
+
     handleSubmit = (e) => {
         e.preventDefault();
-        /*
-        const userEmail = e.target.userEmail.value;
-        const userName = e.target.userName.value;
-        const userPassword = e.target.userPassword.value;
-        */
-        //this.props.navigateTo('map');
+
+        const userEmail = e.target.userEmail ? e.target.userEmail.value : null;
+        const userPassword = e.target.userPassword ? e.target.userPassword.value : null;
+        const fullUserName = e.target.userName ? e.target.userName.value : null;
+
+        let name, surname;
+
+        if (fullUserName) {
+            [name, surname] = fullUserName.split(' ', 2);
+        }
+
+        this.props.reg(userEmail, userPassword, name, surname);
     }
 
     render() {
@@ -47,4 +60,7 @@ class RegistrationForm extends Component {
     }
 }
 
-export default RegistrationForm;
+export const RegistrationForm = connect(
+    null,
+    { reg }
+)(RegistrationFormPresenter);

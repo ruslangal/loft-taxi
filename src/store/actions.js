@@ -4,9 +4,21 @@ export const AUTH = 'AUTH'
 export const SAVE_CARD = 'SAVE_CARD'
 export const GET_CARD = 'GET_CARD'
 export const SHOW_CARD_DATA = 'SHOW_CARD_DATA'
+export const REGISTRATION = 'REGISTRATION'
 
 export const logIn = () => ({ type: LOG_IN })
 export const logOut = () => ({ type: LOG_OUT })
+
+export const reg = (email, password, name, surname) => ({
+    type: REGISTRATION,
+    payload: {
+        email,
+        password,
+        name,
+        surname
+    }
+})
+
 export const auth = (email, password) => ({
     type: AUTH,
     payload: {
